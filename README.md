@@ -380,3 +380,84 @@ python -m pytest
 set PYTHONPATH=src
 python -m fakturama_i2c run samples/order_WEB-2026-0714-A17.png
 ```
+
+---
+
+## 11. If I Had 3 More Hours
+
+I would focus on **performance, reliability, and reducing the dependency on the foreground
+window**.
+
+### 1. Improve execution speed
+
+I would profile the flow and reduce unnecessary:
+
+* UIA tree searches
+* repeated OCR calls
+* waits
+* screenshots
+
+Some operations are currently repeated because reliability was prioritized over speed.
+
+### 2. Reduce foreground dependency
+
+The current implementation keeps Fakturama in the foreground because some SWT controls, especially
+NatTable grids and graphical selector icons, do not expose reliable UIA interaction patterns.
+
+Those controls currently require a real mouse interaction or a screenshot.
+
+With more time, I would investigate whether these interactions can be replaced with keyboard/UIA
+patterns or isolated into a small foreground-only section, allowing most of the workflow to run
+without taking control of the user's desktop.
+
+### 3. Add a background mode
+
+I would add an option such as:
+
+```bash
+python -m fakturama_i2c run order.png --background
+```
+
+The background mode would avoid stealing focus whenever possible and only use foreground
+interaction for controls that genuinely require it.
+
+### 4. Improve OCR performance
+
+I would cache OCR results and only re-read regions when the initial result fails validation.
+
+This would reduce processing time while keeping the current multi-variant OCR approach for
+difficult documents.
+
+### 5. Run all mock scenarios end-to-end
+
+I would run all six mock scenarios against a clean Fakturama workspace and fix any remaining live
+UI issues, especially the unverified inline editing of the Items table.
+
+### Why wasn't this done from the beginning?
+
+The implementation was developed in stages because the first priority was to prove that the
+automation could reliably complete the business process and fail safely.
+
+Fakturama is an SWT application, and some of its controls are not fully exposed through UI
+Automation. Optimizing for background execution before understanding those limitations could have
+produced a faster but less reliable system.
+
+The development order was therefore:
+
+```text
+Correctness
+    ↓
+Validation
+    ↓
+Live UI verification
+    ↓
+Error handling
+    ↓
+Performance optimization
+    ↓
+Background execution
+```
+
+After live testing, it became clear which operations can safely run without the foreground and
+which still require it. This makes background mode an optimization based on the actual behavior of
+the application rather than an assumption.
