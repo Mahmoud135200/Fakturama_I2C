@@ -1,0 +1,67 @@
+{
+  "external_reference": "WEB-2026-0815-C11",
+  "order_date": "2026-08-15",
+  "debtor": {
+    "company": "Hafenblick Cafe GmbH",
+    "first_name": "Jonas",
+    "last_name": "Weber",
+    "alias": "HAFENBLICK-HH",
+    "email": "jonas.weber@example.test",
+    "phone": "+49 40 3330 2210",
+    "customer_id": "CUST-2041",
+    "billing": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "SEPA Direct Debit",
+    "status": "PAID",
+    "payment_date": "2026-08-20"
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "COF-BEAN-1KG",
+      "description": "Espresso Beans 1kg",
+      "quantity": "6",
+      "unit": "pcs",
+      "unit_net": "18.90",
+      "discount_pct": "0",
+      "vat_pct": "7",
+      "line_net": "113.40"
+    },
+    {
+      "position": 2,
+      "sku": "MUG-CER-03",
+      "description": "Ceramic Mug",
+      "quantity": "12",
+      "unit": "pcs",
+      "unit_net": "4.20",
+      "discount_pct": "10",
+      "vat_pct": "19",
+      "line_net": "45.36"
+    }
+  ],
+  "totals": {
+    "net": "158.76",
+    "vat": "16.56",
+    "gross": "175.32",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "New Debtor whose billing == delivery (one address, both roles), new VAT 7%, new payment method SEPA Direct Debit. PAID.",
+    "expect": "completes"
+  }
+}

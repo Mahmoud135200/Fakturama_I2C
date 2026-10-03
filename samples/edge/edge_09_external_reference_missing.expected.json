@@ -1,0 +1,58 @@
+{
+  "external_reference": "",
+  "order_date": "2026-10-09",
+  "debtor": {
+    "company": "Kestrel Engineering GmbH",
+    "first_name": "Sofia",
+    "last_name": "Brandt",
+    "alias": "KESTREL-MUC",
+    "email": "sofia.brandt@example.test",
+    "phone": "+49 89 4410 7730",
+    "customer_id": "CUST-3318",
+    "billing": {
+      "name": "Kestrel Engineering GmbH",
+      "street": "Leopoldstrasse 120",
+      "zip": "80802",
+      "city": "Muenchen",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Kestrel Engineering Lab",
+      "street": "Parkring 5",
+      "zip": "85748",
+      "city": "Garching",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "MAT-DESK-02",
+      "description": "Anti-Fatigue Desk Mat",
+      "quantity": "1",
+      "unit": "pcs",
+      "unit_net": "40.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "40.00"
+    }
+  ],
+  "totals": {
+    "net": "40.00",
+    "vat": "7.60",
+    "gross": "47.60",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "External reference cell is blank -- nothing to put in Cust.Ref. (1.6).",
+    "expect": "stops at validation",
+    "stops_at": "missing external reference",
+    "setup": "-"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "external_reference": "EDGE-2026-1013-B04",
+  "order_date": "2026-10-13",
+  "debtor": {
+    "company": "Hafenblick Cafe GmbH",
+    "first_name": "Jonas",
+    "last_name": "Weber",
+    "alias": "HAFENBLICK-HH",
+    "email": "jonas.weber@example.test",
+    "phone": "+49 40 3330 2210",
+    "customer_id": "CUST-2041",
+    "billing": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Credit Card",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "MAT-DESK-02",
+      "description": "Anti-Fatigue Desk Mat",
+      "quantity": "2",
+      "unit": "pcs",
+      "unit_net": "40.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "80.00"
+    }
+  ],
+  "totals": {
+    "net": "80.00",
+    "vat": "15.20",
+    "gross": "95.20",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "Two terms-of-payment rows are named 'Credit Card', so 2.10.2 cannot choose one.",
+    "expect": "stops for manual review",
+    "stops_at": "2.10.2 payment method lookup",
+    "setup": "In Fakturama: Data > terms of payment > green +, Name 'Credit Card', save -- repeat until exactly two identically named rows exist."
+  }
+}

@@ -1,0 +1,13 @@
+# UI Automation ---------------------------------------------------------------
+uiautomation>=2.0.20                  # UIA tree walking, control patterns, clicks
+pywin32>=306                          # win32gui/win32process: window lifecycle + foreground checks
+
+# Extraction ------------------------------------------------------------------
+winocr>=0.0.13                        # Windows OCR (page pass + multi-variant cell pass)
+rapidocr_onnxruntime>=1.3; python_version < "3.13"   # better on short tokens; no 3.13 wheel yet
+numpy                                 # image arrays for the cell-level re-read
+pillow>=10                            # image loading, grid screenshots, mock rendering
+pypdfium2>=4                          # PDF rendering; self-contained wheel, no Poppler needed
+
+# Tests -----------------------------------------------------------------------
+pytest>=8

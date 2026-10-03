@@ -1,0 +1,58 @@
+{
+  "external_reference": "EDGE-2026-1011-B02",
+  "order_date": "2026-10-11",
+  "debtor": {
+    "company": "Hafenblick Cafe GmbH",
+    "first_name": "Jonas",
+    "last_name": "Weber",
+    "alias": "HAFENBLICK-HH",
+    "email": "jonas.weber@example.test",
+    "phone": "+49 40 3330 2210",
+    "customer_id": "CUST-2041",
+    "billing": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "MUG-CER-03",
+      "description": "Ceramic Mug",
+      "quantity": "10",
+      "unit": "pcs",
+      "unit_net": "4.20",
+      "discount_pct": "0",
+      "vat_pct": "21",
+      "line_net": "42.00"
+    }
+  ],
+  "totals": {
+    "net": "42.00",
+    "vat": "8.82",
+    "gross": "50.82",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "Items carry VAT 21%. A VAT row that claims to be 21% but holds a different value is a conflict, and 3.5 refuses to reuse or duplicate it.",
+    "expect": "stops for manual review",
+    "stops_at": "3.5 VAT match",
+    "setup": "In Fakturama: Data > VATs > green +, Name AND Description 'VAT 21%', Value 20%, save."
+  }
+}

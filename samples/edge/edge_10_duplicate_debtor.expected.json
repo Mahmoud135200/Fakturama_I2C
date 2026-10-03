@@ -1,0 +1,58 @@
+{
+  "external_reference": "EDGE-2026-1010-B01",
+  "order_date": "2026-10-10",
+  "debtor": {
+    "company": "Northstar Office GmbH",
+    "first_name": "Marta",
+    "last_name": "Klein",
+    "alias": "NORTHSTAR-BERLIN",
+    "email": "marta.klein@example.test",
+    "phone": "+49 30 5550 1420",
+    "customer_id": "CUST-1007",
+    "billing": {
+      "name": "Northstar Office GmbH",
+      "street": "Friedrichstrasse 88",
+      "zip": "10179",
+      "city": "Berlin",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Northstar Office Warehouse",
+      "street": "Beusselstrasse 44",
+      "zip": "10553",
+      "city": "Berlin",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "PAID",
+    "payment_date": "2026-10-12"
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "CHR-ERG-01",
+      "description": "Ergonomic Desk Chair",
+      "quantity": "1",
+      "unit": "pcs",
+      "unit_net": "250.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "250.00"
+    }
+  ],
+  "totals": {
+    "net": "250.00",
+    "vat": "47.50",
+    "gross": "297.50",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "Northstar Office GmbH / Marta Klein again, but with billing ZIP 10179 instead of 10117. No row matches all five 2.3 fields, so the flow takes the creation branch -- and Fakturama rejects it as a duplicate contact.",
+    "expect": "stops for manual review",
+    "stops_at": "2.11 duplicate Debtor",
+    "setup": "Run samples/mock/order_01_new_debtor_paid.png first so the real Northstar contact exists."
+  }
+}

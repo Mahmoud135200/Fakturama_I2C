@@ -1,0 +1,67 @@
+{
+  "external_reference": "WEB-2026-0802-B03",
+  "order_date": "2026-08-02",
+  "debtor": {
+    "company": "Northstar Office GmbH",
+    "first_name": "Marta",
+    "last_name": "Klein",
+    "alias": "NORTHSTAR-BERLIN",
+    "email": "marta.klein@example.test",
+    "phone": "+49 30 5550 1420",
+    "customer_id": "CUST-1007",
+    "billing": {
+      "name": "Northstar Office GmbH",
+      "street": "Friedrichstrasse 88",
+      "zip": "10117",
+      "city": "Berlin",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Northstar Office Warehouse",
+      "street": "Beusselstrasse 44",
+      "zip": "10553",
+      "city": "Berlin",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Credit Card",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "CHR-ERG-01",
+      "description": "Ergonomic Desk Chair",
+      "quantity": "1",
+      "unit": "pcs",
+      "unit_net": "250.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "250.00"
+    },
+    {
+      "position": 2,
+      "sku": "LMP-LED-07",
+      "description": "LED Desk Lamp",
+      "quantity": "4",
+      "unit": "pcs",
+      "unit_net": "32.50",
+      "discount_pct": "5",
+      "vat_pct": "19",
+      "line_net": "123.50"
+    }
+  ],
+  "totals": {
+    "net": "373.50",
+    "vat": "70.97",
+    "gross": "444.47",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "Existing Debtor (Northstar, exact 5-field match), existing Product CHR-ERG-01 + new LMP-LED-07, new payment method Credit Card on the Invoice only. UNPAID. VAT total hits a half-cent (70.965).",
+    "expect": "completes"
+  }
+}

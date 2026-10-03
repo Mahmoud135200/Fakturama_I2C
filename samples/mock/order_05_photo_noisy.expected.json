@@ -1,0 +1,67 @@
+{
+  "external_reference": "WEB-2026-0910-E05",
+  "order_date": "2026-09-10",
+  "debtor": {
+    "company": "Hafenblick Cafe GmbH",
+    "first_name": "Jonas",
+    "last_name": "Weber",
+    "alias": "HAFENBLICK-HH",
+    "email": "jonas.weber@example.test",
+    "phone": "+49 40 3330 2210",
+    "customer_id": "CUST-2041",
+    "billing": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "PAID",
+    "payment_date": "2026-09-12"
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "COF-BEAN-1KG",
+      "description": "Espresso Beans 1kg",
+      "quantity": "10",
+      "unit": "pcs",
+      "unit_net": "18.90",
+      "discount_pct": "10",
+      "vat_pct": "7",
+      "line_net": "170.10"
+    },
+    {
+      "position": 2,
+      "sku": "MAT-DESK-02",
+      "description": "Anti-Fatigue Desk Mat",
+      "quantity": "1",
+      "unit": "pcs",
+      "unit_net": "40.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "40.00"
+    }
+  ],
+  "totals": {
+    "net": "210.10",
+    "vat": "19.51",
+    "gross": "229.61",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "Phone-photo style image (rotation, blur, JPEG, uneven light). Existing Debtor Hafenblick and existing Products only \u2014 nothing should be created. PAID.",
+    "expect": "completes"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "external_reference": "EDGE-2026-1012-B03",
+  "order_date": "2026-10-12",
+  "debtor": {
+    "company": "Hafenblick Cafe GmbH",
+    "first_name": "Jonas",
+    "last_name": "Weber",
+    "alias": "HAFENBLICK-HH",
+    "email": "jonas.weber@example.test",
+    "phone": "+49 40 3330 2210",
+    "customer_id": "CUST-2041",
+    "billing": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Hafenblick Cafe GmbH",
+      "street": "Am Sandtorkai 12",
+      "zip": "20457",
+      "city": "Hamburg",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "CHR-ERG-01",
+      "description": "Ergonomic Desk Chair",
+      "quantity": "1",
+      "unit": "pcs",
+      "unit_net": "250.00",
+      "discount_pct": "0",
+      "vat_pct": "19",
+      "line_net": "250.00"
+    }
+  ],
+  "totals": {
+    "net": "250.00",
+    "vat": "47.50",
+    "gross": "297.50",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "SKU CHR-ERG-01 resolves to two Product rows, so 3.3 cannot pick one.",
+    "expect": "stops for manual review",
+    "stops_at": "3.3 Product match",
+    "setup": "In Fakturama: New product with Item Number CHR-ERG-01 (any name/price), save -- so two products share that SKU."
+  }
+}

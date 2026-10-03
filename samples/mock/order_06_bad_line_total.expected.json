@@ -1,0 +1,56 @@
+{
+  "external_reference": "WEB-2026-0915-F99",
+  "order_date": "2026-09-15",
+  "debtor": {
+    "company": "Orion Print Studio",
+    "first_name": "Lena",
+    "last_name": "Hoffmann",
+    "alias": "ORION-KOELN",
+    "email": "lena.hoffmann@example.test",
+    "phone": "+49 221 9070 5512",
+    "customer_id": "CUST-4402",
+    "billing": {
+      "name": "Orion Print Studio",
+      "street": "Venloer Strasse 210",
+      "zip": "50823",
+      "city": "Koeln",
+      "country": "Germany"
+    },
+    "delivery": {
+      "name": "Orion Print Studio",
+      "street": "Venloer Strasse 210",
+      "zip": "50823",
+      "city": "Koeln",
+      "country": "Germany"
+    }
+  },
+  "payment": {
+    "method": "Bank Transfer",
+    "status": "UNPAID",
+    "payment_date": null
+  },
+  "items": [
+    {
+      "position": 1,
+      "sku": "PAP-A4-500",
+      "description": "A4 Paper 500 Sheets",
+      "quantity": "15",
+      "unit": "pcs",
+      "unit_net": "6.00",
+      "discount_pct": "10",
+      "vat_pct": "19",
+      "line_net": "90.00"
+    }
+  ],
+  "totals": {
+    "net": "81.00",
+    "vat": "15.39",
+    "gross": "96.39",
+    "currency": "EUR"
+  },
+  "notes": [],
+  "_scenario": {
+    "purpose": "NEGATIVE: item 1 prints a line total that does not equal qty x price x (1-disc). Extraction validation must stop the run before Fakturama is touched.",
+    "expect": "stops at validation"
+  }
+}
